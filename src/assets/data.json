@@ -1,0 +1,128 @@
+{
+    "recipes": [
+        {
+            "title": "Foolproof Pan Pizza Dough",
+            "source": "www.seriouseats.com/foolproof-pan-pizza-recipe",
+            "ingredients": [
+                {
+                    "ingredient": "bread flour",
+                    "amount": "400",
+                    "measurement": "g"
+                },
+                {
+                    "ingredient": "kosher salt",
+                    "amount": "10",
+                    "measurement": "g"
+                },
+                {
+                    "ingredient": "instant yeast",
+                    "amount": "4",
+                    "measurement": "g"
+                },
+                { "ingredient": "water", "amount": "275", "measurement": "g" },
+                { "ingredient": "olive oil", "amount": "8", "measurement": "g" }
+            ],
+            "steps": [
+                "Combine flour, salt, yeast, water, and oil in a large bowl. Mix with hands or a wooden spoon until no dry flour remains. (The bowl should be at least 4 to 6 times the volume of the dough to account for rising.",
+                "Cover the bowl tightly with plastic wrap, making sure that the edges are well sealed, then let rest at cool room temperature (no warmer than 75°F) for at least 8 hours and up to 24. Dough should rise dramatically and fill bowl. In a hot kitchen, the dough may overproof near the end of that range.",
+                "Sprinkle top of dough lightly with flour, then transfer it to a well-floured work surface. Divide into 2 pieces and form each into a ball by holding it with well-floured hands and tucking the dough underneath itself, rotating it until it forms a tight ball.",
+                "Pour 1 to 2 tablespoons oil in the bottom of two 10-inch cast iron skillets or round cake pans (see note). Place 1 ball of dough in each pan and turn to coat evenly with oil. Using a flat palm, press dough around the pan, flattening it slightly and spreading oil around the entire bottom and edges of the pan. Cover tightly with plastic wrap and let dough sit at room temperature for 2 hours (at room temperatures above 75°F, the dough may require less time to rise; at temperatures below 65°F/18°C, it may require more time). After the first hour, adjust an oven rack to the middle position and preheat oven to 550°F (290°C).",
+                "After 2 hours, dough should be mostly filling the pan up to the edges. Use your fingertips to press it around until it fills in every corner, popping any large bubbles that appear. Lift up one edge of the dough to let any air bubbles underneath escape, then repeat, moving around the dough until there are no air bubbles left underneath and the dough is evenly spread around the pan.",
+                "Top each round of dough with 3/4 cup sauce, spreading sauce to the very edge with the back of a spoon. Sprinkle evenly with mozzarella cheese, all the way to the edges. Season with salt. Add other toppings as desired. Drizzle with olive oil and scatter a few basil leaves over the top of each pizza, if desired.",
+                "Transfer pan to oven and bake until top is golden brown and bubbly and bottom is golden brown and crisp when you lift it with a thin spatula, 12 to 15 minutes. Immediately sprinkle with grated Parmesan or Pecorino Romano cheese, if using. Using a thin spatula, loosen pizza and peek underneath. If bottom is not as crisp as desired, place pan over a burner and cook on medium heat, moving the pan around to cook evenly until it is crisp, 1 to 3 minutes. Remove the pizzas and transfer to a cutting board. Cut each pizza into 6 slices and serve immediately."
+            ],
+            "notes": [],
+            "haveMade": true,
+            "rating": "4"
+        },
+        {
+            "title": "Carnitas",
+            "source": "",
+            "ingredients": [
+                {
+                    "ingredient": "pork shoulder",
+                    "amount": "4",
+                    "measurement": "lbs"
+                },
+                {
+                    "ingredient": "orange",
+                    "amount": "1"
+                },
+                {
+                    "ingredient": "lime",
+                    "amount": "1"
+                },
+                { "ingredient": "red onion", "amount": "1" },
+                {
+                    "ingredient": "garlic",
+                    "amount": "4-6",
+                    "measurement": "cloves"
+                },
+                { "ingredient": "serranos", "amount": "4-6" },
+                { "ingredient": "salt", "amount": "2", "measurement": "tsps" },
+                { "ingredient": "pepper", "amount": "1", "measurement": "tsp" },
+                { "ingredient": "cumin", "amount": "1", "measurement": "Tbsp" },
+                {
+                    "ingredient": "chipotle",
+                    "amount": "1",
+                    "measurement": "Tbsp"
+                },
+                {
+                    "ingredient": "oregano",
+                    "amount": "1",
+                    "measurement": "Tbsp"
+                },
+                { "ingredient": "bay leaves", "amount": "3" }
+            ],
+            "steps": [
+                "Cut pork into 1 inch cubes.",
+                "Cut onion into large chunks.",
+                "Mix spices and rub onto pork.",
+                "Mix in onions.",
+                "Add pork and onions mixture to slow cooker or dutch oven. Squeeze orange and lime juice onto meat and place peels on top of mixture along with bay leaves. Cover with lid and cook on low for 4 hours.",
+                "Remove orange and lime peels, and bay leaves, and continue to cook on low for 2-4 more hours.",
+                "Using a slotted spoon, move meet to cooking tray. Broil meat for 3-5 minutes or until desired crispiness."
+            ],
+            "notes": [],
+            "haveMade": true,
+            "rating": "3"
+        },
+        {
+            "title": "Mashed Sweet Potatoes",
+            "source": "www.seriouseats.com/the-best-mashed-sweet-potatoes-recipe",
+            "ingredients": [
+                {
+                    "ingredient": "sweet potatoes",
+                    "amount": "4",
+                    "measurement": "lbs"
+                },
+                {
+                    "ingredient": "thyme",
+                    "amount": "8",
+                    "measurement": "sprigs"
+                },
+                {
+                    "ingredient": "butter",
+                    "amount": "6",
+                    "measurement": "Tbsp"
+                },
+                {
+                    "ingredient": "maple syrup",
+                    "amount": "1/4",
+                    "measurement": "cup"
+                },
+                { "ingredient": "kosher salt" }
+            ],
+            "steps": [
+                "Adjust oven rack to center position. Place 2 large sheets of heavy-duty aluminum foil on a work surface. Working with 1 sheet at a time, place half of potatoes in center along with 3 sprigs of thyme. Fold up foil and crimp edges to seal tightly. Repeat with other half of potatoes. Transfer pouches to a rimmed baking sheet and place in oven. Set oven to 300°F (150°C). Roast until a thin skewer inserted into potatoes meets no resistance, about 2 hours. Remove potatoes from oven and set aside until cool enough to handle.",
+                "Meanwhile, melt butter in a medium saucepan over medium-low heat, swirling gently, until particles are pale golden brown and smell nutty. Immediately transfer to a large bowl or the bowl of a stand mixer fitted with a whisk attachment. Add maple syrup. Pick leaves off of remaining 2 thyme sprigs, roughly chop, and add to bowl.",
+                "Peel sweet potatoes and discard skins. Add flesh to bowl with butter and syrup. Beat with whisk attachment or a handheld mixer until smooth and fluffy, about 2 minutes. Season to taste with salt. Serve. See note for make-ahead suggestions."
+            ],
+            "notes": [
+                " <p>Sweet potatoes can be made even sweeter by pretreating them in a water bath to activate their enzymes. To do this with a sous vide–style circulator, set your circulator for 150°F (66°C). Place the sweet potatoes in the water bath and let circulate for 2 to 4 hours before proceeding with the recipe. To do this with a beer cooler, fill your cooler with water at 170 to 175°F (77 to 79°C). Add the potatoes, cover, and let rest for 2 to 4 hours before proceeding.</p><p><strong>To Make Ahead:</strong> Sweet potatoes can be refrigerated for up to 5 days. To store and reheat, transfer the sweet potatoes to a heavy-duty zipper-lock bag with the air pressed out. Reheat by completely submerging the zipper-lock bag in a pot full of hot (not boiling) water, removing the bag occasionally to squeeze contents around, until fully reheated, about 30 minutes. The best way to do this is with a sous vide–style circulator set at 150°F.</p>"
+            ],
+            "haveMade": true,
+            "rating": "3"
+        }
+    ]
+}
