@@ -29,6 +29,7 @@
                 variant="text"
                 color="teal-accent-4"
                 :href="recipe.meta.source"
+                target="_blank"
             >
                 Source
             </v-btn>
