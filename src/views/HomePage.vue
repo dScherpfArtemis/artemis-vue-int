@@ -1,5 +1,5 @@
 <template>
-    <HelloWorld />
+    <HelloWorld :recipe-count="recipes.length" />
 </template>
 
 <script setup>
