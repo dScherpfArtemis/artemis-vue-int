@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mx-auto" max-width="344">
+    <v-card class="mx-auto">
         <v-card-text>
             <div>
                 <span>{{ recipe.meta.meal }} - </span>
