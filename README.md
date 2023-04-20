@@ -11,6 +11,7 @@ Each session we'll take a look at what we've built and talk through any issues w
 -   [Vue 3 docs](https://vuejs.org/guide/introduction.html)
 -   [Vite](https://vitejs.dev/)
 -   [Vuetfiy Components](https://next.vuetifyjs.com/en/components/all/)
+-   [Vue Devtools](https://devtools.vuejs.org/guide/installation.html)
 -   [Sessions](/sessions/)
 
 ## Project setup
