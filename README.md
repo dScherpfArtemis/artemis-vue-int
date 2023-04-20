@@ -8,13 +8,19 @@ Each session we'll take a look at what we've built and talk through any issues w
 
 ## Resources
 
--   [Vue 3 docs](https://vuejs.org/guide/introduction.html)
+-   [Vue 3 docs](https://vuejs.org/guide/introduction.html)¹
 -   [Vue Devtools](https://devtools.vuejs.org/guide/installation.html)
 -   [Vue Router docs](https://router.vuejs.org/)
--   [Vuetfiy Components](https://next.vuetifyjs.com/en/components/all/)
+-   [Vuetfiy Components](https://next.vuetifyjs.com/en/components/all/)²
 -   [Vite](https://vitejs.dev/)
 -   [Pinia Docs](https://pinia.vuejs.org/introduction.html)
 -   [Sessions](/sessions/)
+-   [Udemy Vue 3 course](https://www.udemy.com/course/build-web-apps-with-vuejs-firebase/?couponCode=B3E970208A2AC036748D)
+
+Notes:
+
+1. Make sure you're looking at the Compoisition API (toggle in top left) in the Vue 3 docs
+2. next.vuetifyjs.com is the URL for the Vue 3 version of Vuetfiy. If you get to vuetify via google for example, make sure you're using the right version.
 
 ## Project setup
 

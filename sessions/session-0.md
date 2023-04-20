@@ -1,4 +1,4 @@
-# Session 1 - Featured Recipes
+# Session 0 - Featured Recipes
 
 ## Task - Create a featured recipes display
 
