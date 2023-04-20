@@ -5,7 +5,7 @@
             "meta": {
                 "cuisine": "American",
                 "meal": "Dinner",
-                "source": "www.seriouseats.com/foolproof-pan-pizza-recipe",
+                "source": "https://www.seriouseats.com/foolproof-pan-pizza-recipe",
                 "haveMade": true,
                 "rating": "4"
             },
@@ -100,7 +100,7 @@
             "meta": {
                 "cuisine": "American",
                 "meal": "Dinner",
-                "source": "www.seriouseats.com/the-best-mashed-sweet-potatoes-recipe",
+                "source": "https://www.seriouseats.com/the-best-mashed-sweet-potatoes-recipe",
                 "haveMade": true,
                 "rating": "3"
             },
