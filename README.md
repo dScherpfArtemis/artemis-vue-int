@@ -9,9 +9,11 @@ Each session we'll take a look at what we've built and talk through any issues w
 ## Resources
 
 -   [Vue 3 docs](https://vuejs.org/guide/introduction.html)
--   [Vite](https://vitejs.dev/)
--   [Vuetfiy Components](https://next.vuetifyjs.com/en/components/all/)
 -   [Vue Devtools](https://devtools.vuejs.org/guide/installation.html)
+-   [Vue Router docs](https://router.vuejs.org/)
+-   [Vuetfiy Components](https://next.vuetifyjs.com/en/components/all/)
+-   [Vite](https://vitejs.dev/)
+-   [Pinia Docs](https://pinia.vuejs.org/introduction.html)
 -   [Sessions](/sessions/)
 
 ## Project setup
