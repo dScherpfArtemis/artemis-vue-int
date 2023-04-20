@@ -2,7 +2,13 @@
     "recipes": [
         {
             "title": "Foolproof Pan Pizza Dough",
-            "source": "www.seriouseats.com/foolproof-pan-pizza-recipe",
+            "meta": {
+                "cuisine": "American",
+                "meal": "Dinner",
+                "source": "www.seriouseats.com/foolproof-pan-pizza-recipe",
+                "haveMade": true,
+                "rating": "4"
+            },
             "ingredients": [
                 {
                     "ingredient": "bread flour",
@@ -31,13 +37,17 @@
                 "Top each round of dough with 3/4 cup sauce, spreading sauce to the very edge with the back of a spoon. Sprinkle evenly with mozzarella cheese, all the way to the edges. Season with salt. Add other toppings as desired. Drizzle with olive oil and scatter a few basil leaves over the top of each pizza, if desired.",
                 "Transfer pan to oven and bake until top is golden brown and bubbly and bottom is golden brown and crisp when you lift it with a thin spatula, 12 to 15 minutes. Immediately sprinkle with grated Parmesan or Pecorino Romano cheese, if using. Using a thin spatula, loosen pizza and peek underneath. If bottom is not as crisp as desired, place pan over a burner and cook on medium heat, moving the pan around to cook evenly until it is crisp, 1 to 3 minutes. Remove the pizzas and transfer to a cutting board. Cut each pizza into 6 slices and serve immediately."
             ],
-            "notes": [],
-            "haveMade": true,
-            "rating": "4"
+            "notes": []
         },
         {
             "title": "Carnitas",
-            "source": "",
+            "meta": {
+                "cuisine": "Mexican",
+                "meal": "Dinner",
+                "source": "",
+                "haveMade": true,
+                "rating": "3"
+            },
             "ingredients": [
                 {
                     "ingredient": "pork shoulder",
@@ -83,13 +93,17 @@
                 "Remove orange and lime peels, and bay leaves, and continue to cook on low for 2-4 more hours.",
                 "Using a slotted spoon, move meet to cooking tray. Broil meat for 3-5 minutes or until desired crispiness."
             ],
-            "notes": [],
-            "haveMade": true,
-            "rating": "3"
+            "notes": []
         },
         {
             "title": "Mashed Sweet Potatoes",
-            "source": "www.seriouseats.com/the-best-mashed-sweet-potatoes-recipe",
+            "meta": {
+                "cuisine": "American",
+                "meal": "Dinner",
+                "source": "www.seriouseats.com/the-best-mashed-sweet-potatoes-recipe",
+                "haveMade": true,
+                "rating": "3"
+            },
             "ingredients": [
                 {
                     "ingredient": "sweet potatoes",
@@ -120,9 +134,7 @@
             ],
             "notes": [
                 " <p>Sweet potatoes can be made even sweeter by pretreating them in a water bath to activate their enzymes. To do this with a sous vide–style circulator, set your circulator for 150°F (66°C). Place the sweet potatoes in the water bath and let circulate for 2 to 4 hours before proceeding with the recipe. To do this with a beer cooler, fill your cooler with water at 170 to 175°F (77 to 79°C). Add the potatoes, cover, and let rest for 2 to 4 hours before proceeding.</p><p><strong>To Make Ahead:</strong> Sweet potatoes can be refrigerated for up to 5 days. To store and reheat, transfer the sweet potatoes to a heavy-duty zipper-lock bag with the air pressed out. Reheat by completely submerging the zipper-lock bag in a pot full of hot (not boiling) water, removing the bag occasionally to squeeze contents around, until fully reheated, about 30 minutes. The best way to do this is with a sous vide–style circulator set at 150°F.</p>"
-            ],
-            "haveMade": true,
-            "rating": "3"
+            ]
         }
     ]
 }
