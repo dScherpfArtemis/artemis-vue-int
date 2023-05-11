@@ -2,7 +2,7 @@
     <v-card class="mx-auto">
         <v-card-text>
             <div>
-                <span>{{ recipe.meta.meal[0] }} - </span>
+                <span>{{ recipe.meta.meal }} - </span>
                 <RatingTag class="rating-tag" :rating="recipe.meta.rating" />
             </div>
             <p class="text-h4 text--primary">

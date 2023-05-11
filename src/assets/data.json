@@ -4,7 +4,7 @@
             "title": "Foolproof Pan Pizza Dough",
             "meta": {
                 "cuisine": "American",
-                "meal": ["Dinner"],
+                "meal": "Dinner",
                 "source": "https://www.seriouseats.com/foolproof-pan-pizza-recipe",
                 "haveMade": true,
                 "rating": "4"
@@ -43,7 +43,7 @@
             "title": "Carnitas",
             "meta": {
                 "cuisine": "Mexican",
-                "meal": ["Dinner"],
+                "meal": "Dinner",
                 "source": "",
                 "haveMade": true,
                 "rating": "3"
@@ -99,7 +99,7 @@
             "title": "Mashed Sweet Potatoes",
             "meta": {
                 "cuisine": "American",
-                "meal": ["Dinner"],
+                "meal": "Dinner",
                 "source": "https://www.seriouseats.com/the-best-mashed-sweet-potatoes-recipe",
                 "haveMade": true,
                 "rating": "3"
