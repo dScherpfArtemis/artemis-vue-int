@@ -1,4 +1,4 @@
-# Session 01 - Recipe Form
+# Session 02 - Recipe Form
 
 ## Task - Build a multi-stepped recipe form
 
