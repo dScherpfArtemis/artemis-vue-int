@@ -12,17 +12,17 @@ General setup:
 
 -   Use the timeline component as the layout
 -   Two timeline-items
-    -- One that loops over your 'steps' array
-    -- Another that just has a text area to input new steps
+    -   One that loops over your 'steps' array
+    -   Another that just has a text area to input new steps
 
 Steps functionality:
 
 -   Double click a step to swap to an 'edit' view
 -   While in edit view:
-    -- Show the step content in a clearable text area
-    -- Cancel button - closes edit view
-    -- Save button - saves the edited content to the 'steps' array and then toggles out of the edit view
-    -- Move up/down - moves the step up or down in the timeline. These buttons should be conditionally disabled so that you cannot move the first step up or the last step down. Moving the item should keep the same item in edit mode (moving step 2 to step 1 would show step 1 editable)
+    -   Show the step content in a clearable text area
+    -   Cancel button - closes edit view
+    -   Save button - saves the edited content to the 'steps' array and then toggles out of the edit view
+    -   Move up/down - moves the step up or down in the timeline. These buttons should be conditionally disabled so that you cannot move the first step up or the last step down. Moving the item should keep the same item in edit mode (moving step 2 to step 1 would show step 1 editable)
 
 Add new functionality:
 
