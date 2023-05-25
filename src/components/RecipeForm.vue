@@ -107,8 +107,8 @@
                     </v-container>
                 </v-window-item>
                 <v-window-item :value="3">
-                    <h3 class="mb-5">Add Steps</h3></v-window-item
-                >
+                    <field-repeater title="Add Steps" />
+                </v-window-item>
                 <v-window-item :value="4">
                     <h3 class="mb-5">Add Notes</h3></v-window-item
                 >
@@ -137,8 +137,9 @@
 
 <script setup>
 import { ref } from 'vue';
+import FieldRepeater from './form-components/FieldRepeater.vue';
 
-const step = ref(1);
+const step = ref(3);
 const recipe = ref({
     title: '',
     cuisine: '',
