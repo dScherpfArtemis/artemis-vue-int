@@ -107,7 +107,10 @@
                     </v-container>
                 </v-window-item>
                 <v-window-item :value="3">
-                    <field-repeater title="Add Steps" />
+                    <field-repeater
+                        title="Add Steps"
+                        @steps-update="updateSteps"
+                    />
                 </v-window-item>
                 <v-window-item :value="4">
                     <h3 class="mb-5">Add Notes</h3></v-window-item
@@ -121,7 +124,7 @@
                 <v-spacer></v-spacer>
                 <v-btn
                     v-if="step < 4"
-                    color="primary"
+                    color="teal-lighten-2"
                     variant="flat"
                     @click="step++"
                 >
@@ -195,6 +198,10 @@ const addIngredient = () => {
 };
 const removeIngredient = (index) => {
     return recipe.value.ingredients.splice(index, 1);
+};
+
+const updateSteps = (update) => {
+    recipe.value.steps = update;
 };
 </script>
 

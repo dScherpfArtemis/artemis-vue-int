@@ -1,8 +1,10 @@
 <template>
     <h3 v-if="props.title" class="mb-5">
-        {{ props.title }} {{ activeStep.index }}
+        {{ props.title }}
     </h3>
-
+    <div class="text-caption d-flex justify-end">
+        <span>Double click a step to edit</span>
+    </div>
     <v-timeline side="end" align="start" truncate-line="both" class="mb-10">
         <v-timeline-item
             v-for="(step, i) in steps"
@@ -11,6 +13,7 @@
             dot-color="teal-lighten-3"
             @dblclick="setStep(i, step)"
             width="100%"
+            transition="slide-x"
         >
             <template v-slot:icon>
                 {{ i + 1 }}
@@ -42,12 +45,14 @@
                         icon="mdi-arrow-down"
                         @click="moveStep('down')"
                         :disabled="i + 1 === steps.length"
+                        title="Move down"
                     ></v-btn>
                     <v-btn
                         :disabled="i + 1 === 1"
                         density="comfortable"
                         icon="mdi-arrow-up"
                         @click="moveStep('up')"
+                        title="Move up"
                     ></v-btn>
                 </div>
                 <v-btn-toggle variant="outlined"> </v-btn-toggle>
@@ -72,6 +77,7 @@
                         variant="outlined"
                         color="teal-lighten-1"
                         @click="addStep(newStep)"
+                        :disabled="newStep === ''"
                         >Add</v-btn
                     >
                 </div>
@@ -81,7 +87,7 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, watch } from 'vue';
 const props = defineProps({
     title: {
         type: String,
@@ -90,20 +96,18 @@ const props = defineProps({
     },
 });
 
-const steps = ref([
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ',
-]);
+const steps = ref([]);
 const newStep = ref('');
 const add = ref(null);
 const activeStep = reactive({ index: null, content: '' });
 
 // form actions
 const addStep = (text) => {
-    steps.value.push(text);
-    newStep.value = '';
-    add.value.focus();
+    if (text) {
+        steps.value.push(text);
+        newStep.value = '';
+        add.value.focus();
+    }
 };
 const setStep = (num, text) => {
     activeStep.index = num;
@@ -128,6 +132,13 @@ const moveStep = (direction) => {
     steps.value.splice(toIndex, 0, activeStep.content);
     activeStep.index = toIndex;
 };
+
+// emit
+const emit = defineEmits('stepsUpdate');
+
+watch(() => {
+    emit('stepsUpdate', steps);
+});
 </script>
 
 <style lang="scss" scoped>
@@ -140,5 +151,8 @@ const moveStep = (direction) => {
 }
 .v-input {
     width: 100%;
+}
+.v-timeline--vertical.v-timeline--justify-auto {
+    grid-template-columns: min-content min-content auto;
 }
 </style>
