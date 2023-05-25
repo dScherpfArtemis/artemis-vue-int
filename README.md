@@ -77,3 +77,43 @@ pnpm lint
 ### Customize configuration
 
 See [Configuration Reference](https://vitejs.dev/config/).
+
+## VS Code set up
+
+Extensions:
+
+-   [Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar)
+-   [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+Relevant VS Code settings (settings.json)
+
+```
+{
+  ...
+  "editor.formatOnSave": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "vetur.validation.template": false,
+  "vetur.ignoreProjectWarning": true,
+  "vue/require-default-prop": "off",
+  "prettier.requireConfig": true,
+  "[vue]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.accessibilitySupport": "off",
+  "npm.keybindingsChangedWarningShown": true
+  ...
+}
+```
