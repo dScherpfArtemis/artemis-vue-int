@@ -38,7 +38,7 @@ const dialog = ref(false);
 <style lang="scss" scoped>
 .close-btn {
     position: absolute;
-    top: 25px;
+    top: 13px;
     right: 25px;
     z-index: 10;
 }
