@@ -68,7 +68,7 @@
                 <v-textarea
                     class="edit-step"
                     v-model="newStep"
-                    label="Add new step"
+                    :label="`Add new ${props.descriptor}`"
                     clearable
                     ref="add"
                 ></v-textarea>
@@ -90,6 +90,11 @@
 import { ref, reactive, watch } from 'vue';
 const props = defineProps({
     title: {
+        type: String,
+        required: false,
+        default: '',
+    },
+    descriptor: {
         type: String,
         required: false,
         default: '',

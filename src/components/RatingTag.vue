@@ -7,7 +7,7 @@ import { computed } from 'vue';
 
 const props = defineProps({
     rating: {
-        type: Number,
+        type: String,
         required: true,
     },
 });

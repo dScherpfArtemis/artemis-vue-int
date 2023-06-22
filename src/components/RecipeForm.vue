@@ -6,15 +6,15 @@
                 <v-window-item :value="1">
                     <h3 class="mb-5">General Info</h3>
                     <v-text-field
-                        v-model="recipe.title"
+                        v-model="newRecipe.title"
                         label="Title"
                     ></v-text-field>
                     <v-text-field
-                        v-model="recipe.cuisine"
+                        v-model="newRecipe.cuisine"
                         label="Cuisine"
                     ></v-text-field>
                     <v-text-field
-                        v-model="recipe.source"
+                        v-model="newRecipe.source"
                         label="Source"
                     ></v-text-field>
                     <v-container>
@@ -24,7 +24,7 @@
                                 <v-checkbox
                                     v-for="(meal, i) in meals"
                                     :key="i"
-                                    v-model="recipe.meal"
+                                    v-model="newRecipe.meal"
                                     :label="meal"
                                     :value="meal"
                                     hide-details
@@ -47,7 +47,7 @@
 
                     <v-checkbox
                         label="I've made this"
-                        v-model="recipe.haveMade"
+                        v-model="newRecipe.haveMade"
                     ></v-checkbox>
                 </v-window-item>
                 <v-window-item :value="2">
@@ -84,7 +84,9 @@
                             <v-col>
                                 <v-list>
                                     <v-list-item
-                                        v-for="(ing, i) in recipe.ingredients"
+                                        v-for="(
+                                            ing, i
+                                        ) in newRecipe.ingredients"
                                         :key="i"
                                     >
                                         <template v-slot:prepend>
@@ -109,12 +111,17 @@
                 <v-window-item :value="3">
                     <field-repeater
                         title="Add Steps"
+                        descriptor="step"
                         @steps-update="updateSteps"
                     />
                 </v-window-item>
                 <v-window-item :value="4">
-                    <h3 class="mb-5">Add Notes</h3></v-window-item
-                >
+                    <field-repeater
+                        title="Add Notes"
+                        descriptor="note"
+                        @steps-update="updateNotes"
+                    />
+                </v-window-item>
             </v-window>
             <v-spacer></v-spacer>
             <div class="form-controls d-flex flex-row justify-space-between">
@@ -130,10 +137,14 @@
                 >
                     Next
                 </v-btn>
+                <v-btn
+                    v-if="step === 4"
+                    type="submit"
+                    color="teal-lighten-2"
+                    variant="flat"
+                    >Submit</v-btn
+                >
             </div>
-            <v-btn v-if="step === 4" type="submit" block class="mt-2"
-                >Submit</v-btn
-            >
         </v-form>
     </v-sheet>
 </template>
@@ -141,19 +152,21 @@
 <script setup>
 import { ref } from 'vue';
 import FieldRepeater from './form-components/FieldRepeater.vue';
+import { useAppStore } from '@/store/app.js';
+import { storeToRefs } from 'pinia';
+import { watch } from 'vue';
 
-const step = ref(3);
-const recipe = ref({
-    title: '',
-    cuisine: '',
-    meal: [],
-    source: '',
-    haveMade: '',
-    rating: '',
-    ingredients: [],
-    steps: [],
-    notes: [],
+const appStore = useAppStore();
+const { newRecipe } = storeToRefs(appStore);
+
+const props = defineProps({
+    dialogStatus: {
+        type: Boolean,
+        required: true,
+    },
 });
+
+const step = ref(0);
 const meals = ['breakfast', 'brunch', 'lunch', 'snack', 'dinner', 'dessert'];
 const ratings = [
     "Won't make again",
@@ -188,7 +201,7 @@ const measurements = [
 ];
 
 const addIngredient = () => {
-    recipe.value.ingredients.push(ingredient.value);
+    newRecipe.value.ingredients.push(ingredient.value);
     ingredient.value = {
         name: '',
         amount: '',
@@ -197,12 +210,22 @@ const addIngredient = () => {
     return;
 };
 const removeIngredient = (index) => {
-    return recipe.value.ingredients.splice(index, 1);
+    return newRecipe.value.ingredients.splice(index, 1);
 };
 
 const updateSteps = (update) => {
-    recipe.value.steps = update;
+    newRecipe.value.steps = update;
 };
+const updateNotes = (update) => {
+    newRecipe.value.notes = update;
+};
+
+watch(props, () => {
+    // If recipe dialog is closed, clear out the new recipe entry
+    if (props.dialogStatus === false) {
+        appStore.RESET_RECIPE();
+    }
+});
 </script>
 
 <style lang="scss" scoped></style>
