@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar>
+    <v-app-bar class="px-4">
         <v-app-bar-title>
             <div class="site-logo">
                 <v-icon icon="mdi-hamburger" />
