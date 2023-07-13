@@ -1,21 +1,27 @@
 <template>
     <v-sheet width="600" class="mx-auto">
         <h2 class="pb-5">Enter a new recipe</h2>
-        <v-form @submit.prevent>
+        <v-form @submit.prevent ref="recipeForm">
             <v-window v-model="step">
                 <v-window-item :value="1">
                     <h3 class="mb-5">General Info</h3>
                     <v-text-field
+                        id="step-1-title"
                         v-model="newRecipe.title"
                         label="Title"
+                        :rules="[rules.required]"
                     ></v-text-field>
                     <v-text-field
+                        id="step-1-cuisine"
                         v-model="newRecipe.cuisine"
                         label="Cuisine"
+                        :rules="[rules.required]"
                     ></v-text-field>
                     <v-text-field
+                        id="step-1-source"
                         v-model="newRecipe.source"
                         label="Source"
+                        :rules="[rules.required]"
                     ></v-text-field>
                     <v-container>
                         <v-row>
@@ -32,7 +38,7 @@
                             </v-col>
                             <v-col>
                                 <h3>Rating</h3>
-                                <v-radio-group>
+                                <v-radio-group :rules="[rules.required]">
                                     <v-radio
                                         class="py-2"
                                         v-for="(rating, i) in ratings"
@@ -104,6 +110,15 @@
                                         </v-list-item-title>
                                     </v-list-item>
                                 </v-list>
+                                <v-alert
+                                    v-if="ingredientError"
+                                    density="compact"
+                                    type="error"
+                                    closable
+                                    v-model="ingredientError"
+                                    variant="outlined"
+                                    :text="ingredientError"
+                                ></v-alert>
                             </v-col>
                         </v-row>
                     </v-container>
@@ -114,6 +129,16 @@
                         descriptor="step"
                         @steps-update="updateSteps"
                     />
+                    <v-alert
+                        v-if="stepError"
+                        density="compact"
+                        type="error"
+                        closable
+                        v-model="stepError"
+                        variant="outlined"
+                        :text="stepError"
+                        class="mb-5"
+                    ></v-alert>
                 </v-window-item>
                 <v-window-item :value="4">
                     <field-repeater
@@ -129,6 +154,17 @@
                     Back
                 </v-btn>
                 <v-spacer></v-spacer>
+                <!-- <v-pagination
+                    v-model="step"
+                    :length="4"
+                    rounded="circle"
+                    density="compact"
+                    total-visible="4"
+                >
+                    <template v-slot:item>
+                        <v-icon icon="mdi-alert-circle" color="error"></v-icon>
+                    </template>
+                </v-pagination> -->
                 <v-btn
                     v-if="step < 4"
                     color="teal-lighten-2"
@@ -142,6 +178,7 @@
                     type="submit"
                     color="teal-lighten-2"
                     variant="flat"
+                    @click="validate"
                     >Submit</v-btn
                 >
             </div>
@@ -166,6 +203,7 @@ const props = defineProps({
     },
 });
 
+const recipeForm = ref();
 const step = ref(0);
 const meals = ['breakfast', 'brunch', 'lunch', 'snack', 'dinner', 'dessert'];
 const ratings = [
@@ -226,6 +264,48 @@ watch(props, () => {
         appStore.RESET_RECIPE();
     }
 });
+
+// validation
+const rules = {
+    required: (value) => !!value || 'Field is required',
+};
+let errors = {};
+const ingredientError = ref('');
+const stepError = ref('');
+
+const validate = async () => {
+    // Use Vuetify's validate() to check form elements with rules
+    const { valid } = await recipeForm.value.validate();
+    console.log('Valid', valid, recipeForm.value.errors);
+
+    if (recipeForm.value.errors) {
+        errors = recipeForm.value.errors.map((el) => {
+            let info = el.id.split('-');
+            return { step: info[1], field: info[2] };
+        });
+    }
+    // check newRecipe object for missing ingredients and steps
+    if (newRecipe.value.ingredients.length === 0) {
+        errors.push({
+            step: 2,
+            field: 'ingredient',
+        });
+        ingredientError.value = 'Recipe must include at least one ingredient';
+    } else {
+        ingredientError.value = '';
+    }
+    if (newRecipe.value.steps.length === 0) {
+        errors.push({
+            step: 3,
+            field: 'steps',
+        });
+        stepError.value = 'Recipe must include at least one step';
+    } else {
+        stepError.value = '';
+    }
+
+    if (valid) console.log('Form is valid');
+};
 </script>
 
 <style lang="scss" scoped></style>
