@@ -15,13 +15,11 @@
                         id="step-1-cuisine"
                         v-model="newRecipe.cuisine"
                         label="Cuisine"
-                        :rules="[rules.required]"
                     ></v-text-field>
                     <v-text-field
                         id="step-1-source"
                         v-model="newRecipe.source"
                         label="Source"
-                        :rules="[rules.required]"
                     ></v-text-field>
                     <v-container>
                         <v-row>
@@ -38,7 +36,7 @@
                             </v-col>
                             <v-col>
                                 <h3>Rating</h3>
-                                <v-radio-group :rules="[rules.required]">
+                                <v-radio-group>
                                     <v-radio
                                         class="py-2"
                                         v-for="(rating, i) in ratings"
@@ -115,7 +113,6 @@
                                     density="compact"
                                     type="error"
                                     closable
-                                    v-model="ingredientError"
                                     variant="outlined"
                                     :text="ingredientError"
                                 ></v-alert>
@@ -150,27 +147,34 @@
             </v-window>
             <v-spacer></v-spacer>
             <div class="form-controls d-flex flex-row justify-space-between">
-                <v-btn v-if="step > 1" variant="text" @click="step--">
+                <v-btn :disabled="step === 1" variant="text" @click="step--">
                     Back
                 </v-btn>
                 <v-spacer></v-spacer>
-                <!-- <v-pagination
-                    v-model="step"
-                    :length="4"
-                    rounded="circle"
-                    density="compact"
-                    total-visible="4"
-                >
-                    <template v-slot:item>
-                        <v-icon icon="mdi-alert-circle" color="error"></v-icon>
-                    </template>
-                </v-pagination> -->
+                <div class="pagination">
+                    <v-btn
+                        v-for="(step, i) in 4"
+                        :key="i"
+                        @click="updateStep(i + 1)"
+                        :disabled="i >= activePages"
+                    >
+                        {{ i + 1 }}
+                        <v-icon
+                            v-if="errorArray.includes(i + 1)"
+                            icon="mdi-alert-circle"
+                            color="error"
+                        ></v-icon>
+                    </v-btn>
+                </div>
+                <v-spacer></v-spacer>
                 <v-btn
                     v-if="step < 4"
                     color="teal-lighten-2"
                     variant="flat"
-                    @click="step++"
+                    @click="setPage(step + 1)"
                 >
+                    <!-- @click="step <= activePages ? validate : step++" -->
+                    <!-- :disabled="step >= activePages" -->
                     Next
                 </v-btn>
                 <v-btn
@@ -187,7 +191,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import FieldRepeater from './form-components/FieldRepeater.vue';
 import { useAppStore } from '@/store/app.js';
 import { storeToRefs } from 'pinia';
@@ -258,6 +262,10 @@ const updateNotes = (update) => {
     newRecipe.value.notes = update;
 };
 
+const updateStep = (i) => {
+    step.value = i;
+};
+
 watch(props, () => {
     // If recipe dialog is closed, clear out the new recipe entry
     if (props.dialogStatus === false) {
@@ -269,24 +277,38 @@ watch(props, () => {
 const rules = {
     required: (value) => !!value || 'Field is required',
 };
-let errors = {};
+const errors = ref([]);
+const errorArray = ref([]);
 const ingredientError = ref('');
 const stepError = ref('');
+
+const activePages = computed(() => {
+    if (newRecipe.value.steps.length) {
+        return 4;
+    }
+    if (newRecipe.value.ingredients.length) {
+        return 3;
+    }
+    if (newRecipe.value.title) {
+        return 2;
+    }
+    return 1;
+});
 
 const validate = async () => {
     // Use Vuetify's validate() to check form elements with rules
     const { valid } = await recipeForm.value.validate();
     console.log('Valid', valid, recipeForm.value.errors);
 
-    if (recipeForm.value.errors) {
-        errors = recipeForm.value.errors.map((el) => {
+    if (activePages.value >= 1 && recipeForm.value.errors) {
+        errors.value = recipeForm.value.errors.map((el) => {
             let info = el.id.split('-');
             return { step: info[1], field: info[2] };
         });
     }
     // check newRecipe object for missing ingredients and steps
-    if (newRecipe.value.ingredients.length === 0) {
-        errors.push({
+    if (activePages.value >= 2 && newRecipe.value.ingredients.length === 0) {
+        errors.value.push({
             step: 2,
             field: 'ingredient',
         });
@@ -294,8 +316,8 @@ const validate = async () => {
     } else {
         ingredientError.value = '';
     }
-    if (newRecipe.value.steps.length === 0) {
-        errors.push({
+    if (activePages.value >= 3 && newRecipe.value.steps.length === 0) {
+        errors.value.push({
             step: 3,
             field: 'steps',
         });
@@ -306,6 +328,37 @@ const validate = async () => {
 
     if (valid) console.log('Form is valid');
 };
+
+const setPage = (num) => {
+    console.log('SET PAGE', num, activePages.value);
+    if (num > activePages.value) {
+        validate();
+        return;
+    }
+    clearErrors();
+    step.value = num;
+};
+
+const clearErrors = () => {
+    errors.value = [];
+    errorArray.value = [];
+};
+
+watch(errors, () => {
+    if (errors.value.length) {
+        console.log('NEW ERROR', errors.value);
+        errorArray.value = errors.value.map((er) => {
+            console.log('er', er);
+            return parseInt(er.step);
+        });
+    }
+});
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.pagination {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+</style>
