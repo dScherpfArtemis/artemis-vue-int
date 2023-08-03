@@ -15,11 +15,13 @@
                         id="step-1-cuisine"
                         v-model="newRecipe.cuisine"
                         label="Cuisine"
+                        :rules="[rules.required]"
                     ></v-text-field>
                     <v-text-field
                         id="step-1-source"
                         v-model="newRecipe.source"
                         label="Source"
+                        :rules="[rules.required]"
                     ></v-text-field>
                     <v-container>
                         <v-row>
@@ -36,7 +38,7 @@
                             </v-col>
                             <v-col>
                                 <h3>Rating</h3>
-                                <v-radio-group>
+                                <v-radio-group :rules="[rules.required]">
                                     <v-radio
                                         class="py-2"
                                         v-for="(rating, i) in ratings"
