@@ -1,4 +1,4 @@
-# Session 03 - Move Recipe Form to Dialog Component
+# Session 04 - Move Recipe Form to Dialog Component
 
 ## Task - Move our recipe form to a dialog component
 
