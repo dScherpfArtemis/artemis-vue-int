@@ -5,9 +5,12 @@
                 <span>{{ recipe.meta.meal[0] }} - </span>
                 <RatingTag class="rating-tag" :rating="recipe.meta.rating" />
             </div>
-            <p class="text-h4 text--primary">
+            <router-link
+                :to="`/recipe/` + recipe.title.replace(/ /g, '-').toLowerCase()"
+                class="text-h4 text--primary"
+            >
                 {{ recipe.title }}
-            </p>
+            </router-link>
             <div class="divider"></div>
             <div class="text--primary">
                 <p>

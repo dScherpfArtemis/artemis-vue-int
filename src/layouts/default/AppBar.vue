@@ -2,9 +2,11 @@
     <v-app-bar class="px-4">
         <v-app-bar-title>
             <div class="site-logo">
-                <v-icon icon="mdi-hamburger" />
+                <router-link to="/"
+                    ><v-icon icon="mdi-hamburger"
+                /></router-link>
 
-                <div>Whim</div>
+                <router-link to="/">Whim</router-link>
             </div>
         </v-app-bar-title>
         <template v-slot:append>

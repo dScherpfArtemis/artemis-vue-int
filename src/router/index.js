@@ -1,13 +1,14 @@
 // Composables
 import { createRouter, createWebHistory } from 'vue-router';
+import DefaultLayout from '@/layouts/default/DefaultLayout.vue';
 
 const routes = [
     {
         path: '/',
-        component: () => import('@/layouts/default/Default.vue'),
+        component: DefaultLayout,
         children: [
             {
-                path: '',
+                path: '/',
                 name: 'Home',
                 // route level code-splitting
                 // this generates a separate chunk (about.[hash].js) for this route
@@ -16,6 +17,12 @@ const routes = [
                     import(
                         /* webpackChunkName: "home" */ '@/views/HomePage.vue'
                     ),
+            },
+            {
+                name: 'Recipe',
+                path: '/recipe/:title',
+                alias: '/r/:title',
+                component: () => import('@/views/RecipePage.vue'),
             },
         ],
     },
