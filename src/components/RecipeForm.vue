@@ -1,6 +1,6 @@
 <template>
     <v-sheet width="600" class="mx-auto">
-        <h2 class="pb-5">Enter a new recipe</h2>
+        <h2 class="pb-5">{{ props.title }}</h2>
         <v-form @submit.prevent ref="recipeForm">
             <v-window v-model="step">
                 <v-window-item :value="1">
@@ -173,8 +173,6 @@
                     variant="flat"
                     @click="setPage(step + 1)"
                 >
-                    <!-- @click="step <= activePages ? validate : step++" -->
-                    <!-- :disabled="step >= activePages" -->
                     Next
                 </v-btn>
                 <v-btn
@@ -196,6 +194,7 @@ import FieldRepeater from './form-components/FieldRepeater.vue';
 import { useAppStore } from '@/store/app.js';
 import { storeToRefs } from 'pinia';
 import { watch } from 'vue';
+import { onMounted } from 'vue';
 
 const appStore = useAppStore();
 const { newRecipe } = storeToRefs(appStore);
@@ -204,6 +203,16 @@ const props = defineProps({
     dialogStatus: {
         type: Boolean,
         required: true,
+    },
+    title: {
+        type: String,
+        required: false,
+        default: 'Enter a new recipe',
+    },
+    mode: {
+        type: String,
+        required: false,
+        default: 'none',
     },
 });
 
@@ -351,6 +360,13 @@ watch(errors, () => {
             console.log('er', er);
             return parseInt(er.step);
         });
+    }
+});
+
+// set recipe to edit
+onMounted(() => {
+    if (props.mode === 'edit') {
+        appStore.EDIT_CURRENT_RECIPE();
     }
 });
 </script>

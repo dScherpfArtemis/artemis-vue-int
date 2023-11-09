@@ -8,22 +8,45 @@
                         <v-icon
                             icon="mdi-checkbox-marked-circle"
                             color="primary"
+                            title="I've made this"
                         ></v-icon>
                         <v-spacer />
-                        <v-chip>
-                            <RatingTag :rating="recipe.meta.rating" />
-                        </v-chip>
+                        <DialogFrame
+                            v-slot="slotProps"
+                            button-text="Edit recipe"
+                            button-icon="mdi-playlist-edit"
+                        >
+                            <RecipeForm
+                                :dialog-status="slotProps.dialogStatus"
+                                title="Edit Recipe"
+                                mode="edit"
+                            />
+                        </DialogFrame>
+                    </div>
+                    <div class="title-row mb-5">
+                        <span class="text-caption">
+                            <a :href="recipe.meta.source">{{
+                                recipe.meta.source
+                            }}</a>
+                        </span>
+                    </div>
+                    <div class="title-row">
+                        <div class="tags">
+                            <v-chip v-if="recipe.meta.cuisine" label>{{
+                                recipe.meta.cuisine
+                            }}</v-chip>
+                            <v-chip
+                                label
+                                v-for="(meal, i) in recipe.meta.meal"
+                                :key="i"
+                                >{{ meal }}</v-chip
+                            >
+                            <v-chip label>
+                                <RatingTag :rating="recipe.meta.rating" />
+                            </v-chip>
+                        </div>
                     </div>
 
-                    <div class="tags">
-                        <v-chip label>{{ recipe.meta.cuisine }}</v-chip>
-                        <v-chip
-                            label
-                            v-for="(meal, i) in recipe.meta.meal"
-                            :key="i"
-                            >{{ meal }}</v-chip
-                        >
-                    </div>
                     <v-divider class="my-5"></v-divider>
                     <div class="recipe-body">
                         <div class="ingredients">
@@ -42,7 +65,7 @@
                                             >&nbsp;{{ ing.measurement }}
                                         </span>
                                         <span v-if="ing.amount"> - </span>
-                                        <span>{{ ing.ingredient }}</span>
+                                        <span>{{ ing.name }}</span>
                                     </v-list-title>
                                 </v-list-item>
                             </v-list>
@@ -89,9 +112,15 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { useAppStore } from '@/store/app.js';
 import data from '@/assets/data.json';
 import RatingTag from '@/components/RatingTag.vue';
+import DialogFrame from '@/components/dialogs/DialogFrame.vue';
+import RecipeForm from '@/components/RecipeForm.vue';
+
+const appStore = useAppStore();
 
 const route = useRoute();
 const recipes = data.recipes;
@@ -102,6 +131,10 @@ const recipe = recipes.find((rec) => {
     let cleanTitle = rec.title.replace(/ /g, '-').toLowerCase();
 
     return cleanTitle === route.params.title.toLowerCase();
+});
+
+onMounted(() => {
+    appStore.currentRecipe = recipe;
 });
 </script>
 

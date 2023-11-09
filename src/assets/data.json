@@ -11,22 +11,22 @@
             },
             "ingredients": [
                 {
-                    "ingredient": "bread flour",
+                    "name": "bread flour",
                     "amount": "400",
                     "measurement": "g"
                 },
                 {
-                    "ingredient": "kosher salt",
+                    "name": "kosher salt",
                     "amount": "10",
                     "measurement": "g"
                 },
                 {
-                    "ingredient": "instant yeast",
+                    "name": "instant yeast",
                     "amount": "4",
                     "measurement": "g"
                 },
-                { "ingredient": "water", "amount": "275", "measurement": "g" },
-                { "ingredient": "olive oil", "amount": "8", "measurement": "g" }
+                { "name": "water", "amount": "275", "measurement": "g" },
+                { "name": "olive oil", "amount": "8", "measurement": "g" }
             ],
             "steps": [
                 "Combine flour, salt, yeast, water, and oil in a large bowl. Mix with hands or a wooden spoon until no dry flour remains. (The bowl should be at least 4 to 6 times the volume of the dough to account for rising.",
@@ -50,39 +50,39 @@
             },
             "ingredients": [
                 {
-                    "ingredient": "pork shoulder",
+                    "name": "pork shoulder",
                     "amount": "4",
                     "measurement": "lbs"
                 },
                 {
-                    "ingredient": "orange",
+                    "name": "orange",
                     "amount": "1"
                 },
                 {
-                    "ingredient": "lime",
+                    "name": "lime",
                     "amount": "1"
                 },
-                { "ingredient": "red onion", "amount": "1" },
+                { "name": "red onion", "amount": "1" },
                 {
-                    "ingredient": "garlic",
+                    "name": "garlic",
                     "amount": "4-6",
                     "measurement": "cloves"
                 },
-                { "ingredient": "serranos", "amount": "4-6" },
-                { "ingredient": "salt", "amount": "2", "measurement": "tsps" },
-                { "ingredient": "pepper", "amount": "1", "measurement": "tsp" },
-                { "ingredient": "cumin", "amount": "1", "measurement": "Tbsp" },
+                { "name": "serranos", "amount": "4-6" },
+                { "name": "salt", "amount": "2", "measurement": "tsps" },
+                { "name": "pepper", "amount": "1", "measurement": "tsp" },
+                { "name": "cumin", "amount": "1", "measurement": "Tbsp" },
                 {
-                    "ingredient": "chipotle",
+                    "name": "chipotle",
                     "amount": "1",
                     "measurement": "Tbsp"
                 },
                 {
-                    "ingredient": "oregano",
+                    "name": "oregano",
                     "amount": "1",
                     "measurement": "Tbsp"
                 },
-                { "ingredient": "bay leaves", "amount": "3" }
+                { "name": "bay leaves", "amount": "3" }
             ],
             "steps": [
                 "Cut pork into 1 inch cubes.",
@@ -106,26 +106,26 @@
             },
             "ingredients": [
                 {
-                    "ingredient": "sweet potatoes",
+                    "name": "sweet potatoes",
                     "amount": "4",
                     "measurement": "lbs"
                 },
                 {
-                    "ingredient": "thyme",
+                    "name": "thyme",
                     "amount": "8",
                     "measurement": "sprigs"
                 },
                 {
-                    "ingredient": "butter",
+                    "name": "butter",
                     "amount": "6",
                     "measurement": "Tbsp"
                 },
                 {
-                    "ingredient": "maple syrup",
+                    "name": "maple syrup",
                     "amount": "1/4",
                     "measurement": "cup"
                 },
-                { "ingredient": "kosher salt" }
+                { "name": "kosher salt" }
             ],
             "steps": [
                 "Adjust oven rack to center position. Place 2 large sheets of heavy-duty aluminum foil on a work surface. Working with 1 sheet at a time, place half of potatoes in center along with 3 sprigs of thyme. Fold up foil and crimp edges to seal tightly. Repeat with other half of potatoes. Transfer pouches to a rimmed baking sheet and place in oven. Set oven to 300°F (150°C). Roast until a thin skewer inserted into potatoes meets no resistance, about 2 hours. Remove potatoes from oven and set aside until cool enough to handle.",

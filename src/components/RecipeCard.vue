@@ -15,7 +15,7 @@
             <div class="text--primary">
                 <p>
                     <span v-for="(ing, i) in recipe.ingredients" :key="i"
-                        >{{ ing.ingredient
+                        >{{ ing.name
                         }}<span v-if="i < recipe.ingredients.length - 1"
                             >,
                         </span>
@@ -74,7 +74,7 @@ const props = defineProps({
 const reveal = ref(false);
 const ingredients = () => {
     return props.recipe.ingredients.map((item) => {
-        return item.ingredient;
+        return item.name;
     });
 };
 </script>
