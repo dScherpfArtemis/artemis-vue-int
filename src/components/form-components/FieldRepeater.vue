@@ -87,6 +87,7 @@
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
 import { ref, reactive, watch } from 'vue';
 const props = defineProps({
     title: {
@@ -99,12 +100,23 @@ const props = defineProps({
         required: false,
         default: '',
     },
+    editContent: {
+        type: Array,
+        required: false,
+        default: () => [],
+    },
 });
 
 const steps = ref([]);
 const newStep = ref('');
 const add = ref(null);
 const activeStep = reactive({ index: null, content: '' });
+
+onMounted(() => {
+    if (props.editContent) {
+        steps.value = props.editContent;
+    }
+});
 
 // form actions
 const addStep = (text) => {
@@ -141,7 +153,7 @@ const moveStep = (direction) => {
 // emit
 const emit = defineEmits('stepsUpdate');
 
-watch(() => {
+watch(steps, () => {
     emit('stepsUpdate', steps);
 });
 </script>

@@ -29,14 +29,14 @@
                                     v-for="(meal, i) in meals"
                                     :key="i"
                                     v-model="newRecipe.meal"
-                                    :label="meal"
-                                    :value="meal"
+                                    :label="meal.toUpperCase()"
+                                    :value="meal.toLowerCase()"
                                     hide-details
                                 ></v-checkbox>
                             </v-col>
                             <v-col>
                                 <h3>Rating</h3>
-                                <v-radio-group>
+                                <v-radio-group v-model="newRecipe.rating">
                                     <v-radio
                                         class="py-2"
                                         v-for="(rating, i) in ratings"
@@ -125,6 +125,9 @@
                         title="Add Steps"
                         descriptor="step"
                         @steps-update="updateSteps"
+                        :edit-content="
+                            props.mode === 'edit' ? newRecipe.steps : []
+                        "
                     />
                     <v-alert
                         v-if="stepError"
@@ -142,6 +145,9 @@
                         title="Add Notes"
                         descriptor="note"
                         @steps-update="updateNotes"
+                        :edit-content="
+                            props.mode === 'edit' ? newRecipe.notes : []
+                        "
                     />
                 </v-window-item>
             </v-window>
@@ -265,7 +271,10 @@ const removeIngredient = (index) => {
 };
 
 const updateSteps = (update) => {
+    console.log('UPDATE STEPS');
+    // if (newRecipe.value.steps !== update) {
     newRecipe.value.steps = update;
+    // }
 };
 const updateNotes = (update) => {
     newRecipe.value.notes = update;

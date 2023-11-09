@@ -14,11 +14,11 @@ const props = defineProps({
 
 const ratingDesc = computed(() => {
     switch (props.rating) {
-        case '1':
+        case '0':
             return "Won't make again";
-        case '2':
+        case '1':
             return 'Needs some work';
-        case '3':
+        case '2':
             return 'Make it again';
         default:
             return 'All time favorite';
